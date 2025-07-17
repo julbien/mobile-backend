@@ -52,8 +52,6 @@ const isAdmin = (req, res, next) => {
     }
 };
 
-app.use(express.static(path.join(__dirname, '../public')));
-
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/admin', require('./routes/admin'));
 app.use('/api/user', require('./routes/user'));
@@ -72,7 +70,7 @@ app.get('/admin/dashboard', isAdmin, (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/index.html'));
+    res.json({ message: 'API is running!' });
 });
 
 app.use((err, req, res, next) => {
