@@ -9,9 +9,13 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3000;
 
+// Middleware
 app.use(cors({
-    origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
-    credentials: true
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    return callback(null, true);
+  },
+  credentials: true,
 }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
