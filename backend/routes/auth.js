@@ -17,6 +17,17 @@ router.post('/register', async (req, res) => {
             return res.status(400).json({ success: false, message: 'You must agree to both Terms and Conditions and Data Privacy Policy' });
         }
 
+        // Email must end with @gmail.com
+        if (!email.endsWith('@gmail.com')) {
+            return res.status(400).json({ success: false, message: 'Email must be a @gmail.com address' });
+        }
+
+        // Phone must start with 09 and be 11 digits
+        const phoneRegex = /^09\d{9}$/;
+        if (!phoneRegex.test(phone)) {
+            return res.status(400).json({ success: false, message: 'Phone number must start with 09 and be 11 digits' });
+        }
+
         const [existingUser] = await db.query('SELECT * FROM users WHERE email = ?', [email]);
         if (existingUser.length > 0) {
             return res.status(400).json({ success: false, message: 'Email already exists' });
