@@ -16,7 +16,7 @@ Backend & Database Info:
 Option 1: Install the APK (Recommended for Users)
 -----------------------------------------------------
 1. Download the APK from this link:
-   https://drive.google.com/your-apk-link-here
+   https://drive.google.com/drive/folders/1REHwViqvHUKE1lfhn47bSsDzZfPmFmED
 
 2. On your Android device:
    - Open the link and download the APK file.
